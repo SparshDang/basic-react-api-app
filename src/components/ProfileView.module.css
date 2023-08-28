@@ -1,0 +1,55 @@
+.overlay-container {
+  width: 100%;
+  height: 100%;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.profile-container {
+  background-color: rgba(255, 255, 255, 0.603);
+  backdrop-filter: blur(10px);
+
+  width: 90%;
+  height: 90%;
+  border-radius: 10px;
+  border: 1px solid rgba(179, 179, 179, 0.475);
+  box-shadow: 4px 4px 5px rgba(126, 126, 126, 0.516);
+
+  padding: 24px;
+}
+
+.person-info {
+  display: flex;
+  gap: 10px;
+}
+
+.image-container {
+  border-radius: 50%;
+  background-color: black;
+  padding: 5px;
+  display: grid;
+  place-items: center;
+  aspect-ratio: 1/1;
+  height: 100%;
+  align-self: center;
+}
+.image-container img {
+  border-radius: 50%;
+  aspect-ratio: 1/1;
+}
+
+.username{
+    color: grey;
+
+}
+
+
+
+

@@ -4,7 +4,7 @@ import style from "./ProfileCard.module.css";
 export default function ProfileCard(props) {
   const person = props.person;
   return (
-    <div className={style["person-card"]}>
+    <div className={style["person-card"]} onClick={() => props.onClick(person)}>
       <div className={style["image-container"]}>
         <img className={style.image} src={person.picture.large} alt="" />
       </div>
@@ -14,7 +14,7 @@ export default function ProfileCard(props) {
           {person.name.title}. {person.name.first} {person.name.last}
         </h3>
         <h4 className={style["secondary-text"]}>
-          {new Date(person.dob.date).toDateString()}
+          {new Date(person.dob.date).toLocaleDateString()}
         </h4>
         <h4 className={style["secondary-text"]}>{person.email}</h4>
       </div>
