@@ -10,10 +10,10 @@ function App() {
   const [filtersString, setFiltersString] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
-  const makeApiRequest = async () => {
+  const getPersons = async () => {
     setIsLoading(true);
     setPersons(null);
-    const url = `https://randomuser.me/api/?results=24&${filtersString}`;
+    const url = `https://randomuser.me/api/?results=25&${filtersString}`;
     const response = await fetch(url);
     const data = await response.json();
     setPersons(data.results);
@@ -21,11 +21,11 @@ function App() {
   };
 
   useEffect(() => {
-    makeApiRequest();
+    getPersons();
   }, []);
 
   useEffect( () => {
-    makeApiRequest();
+    getPersons();
   }, [filtersString])
 
   const handleClick = (person) => {
@@ -50,9 +50,8 @@ function App() {
 
       <FiltersContainer applyFilters={applyFilters}/>
 
-      <ProfileList
+      <ProfileList isLoading={isLoading}
       >
-        {isLoading && <p>Loading...</p> }
         {persons && 
           persons.map((person) => {
             return <ProfileCard key={person.login.uuid} person={person} onClick={handleClick} />;

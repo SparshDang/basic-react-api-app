@@ -58,7 +58,6 @@ export default function FiltersContainer(props) {
               <option value="UA">UA</option>
               <option value="US">US</option>
 
-              {/* AU, BR, CA, CH, DE, DK, ES, FI, FR, GB, IE, IN, IR, MX, NL, NO, NZ, RS, TR, UA, US */}
             </select>
 
         </div>

@@ -11,4 +11,14 @@
     border-radius: 12px;
 
     box-shadow: 8px 8px 5px rgba(50, 50, 50, 0.4);
+
+    position: relative;
+    z-index: 1;
+}
+
+.heading{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
 }
