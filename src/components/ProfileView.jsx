@@ -11,8 +11,8 @@ export default function ProfileView(props) {
   const object = (
     <div className={style["overlay-container"]} onClick={props.closeProfile}>
       <div className={style["profile-container"]}>
-        <ProfileViewCard heading={"Profile"}>
-          <div className={style['person-info']}>
+        <ProfileViewCard heading="Profile" classNames={style['profile-area']}>
+          <div className={style["person-info"]}>
             <div className={style["image-container"]}>
               <img src={person.picture.large} alt="" />
             </div>
@@ -28,11 +28,24 @@ export default function ProfileView(props) {
             </div>
           </div>
         </ProfileViewCard>
-
-        <ProfileViewCard heading={"Contacts"}>
+        <ProfileViewCard heading="Contact" classNames={style['contact-area']}>
           Email : {person.email} <br />
           Phone : {person.phone}
         </ProfileViewCard>
+        <ProfileViewCard heading="Address" classNames={style['address-area']}>
+          <div className={style["main-address"]}>
+            Street No. {person.location.street.number},{" "}
+            {person.location.street.name}, <br />
+            {person.location.city}, {person.location.state},{" "}
+            {person.location.country} <br />
+            {person.location.postcode}
+          </div>
+          <div className={style["coordiates"]}>
+            Latitude : {person.location.coordinates.latitude} <br />
+            Longitude : {person.location.coordinates.longitude}
+          </div>
+        </ProfileViewCard>
+
       </div>
     </div>
   );

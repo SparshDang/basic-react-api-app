@@ -37,13 +37,12 @@ function App() {
         }}
       >
         {isLoading && <p>Loading...</p> }
-        {persons &&
+        {persons && 
           persons.map((person) => {
             return <ProfileCard key={person.login.uuid} person={person} onClick={handleClick} />;
           })}
       </div>
       {person && <ProfileView person={person} closeProfile={closeProfile}/>}
-      <button onClick={makeApiRequest}>New User</button>
     </div>
   );
 }
