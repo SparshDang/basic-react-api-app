@@ -1,0 +1,14 @@
+.profile-list{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px,1fr));
+    padding: 10px;
+    gap: 10px;
+    height: 500px;
+    overflow: scroll;
+
+    margin: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    border-radius: 12px;
+
+    box-shadow: 8px 8px 5px rgba(50, 50, 50, 0.4);
+}

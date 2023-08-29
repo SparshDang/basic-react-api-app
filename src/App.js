@@ -1,11 +1,14 @@
 import { useEffect, useState } from "react";
 import ProfileCard from "./components/ProfileCard";
 import ProfileView from "./components/ProfileView";
+import ProfileList from "./components/ProfileList";
 
 function App() {
   const [persons, setPersons] = useState(null);
   const [person, setPerson] = useState(null);
+  const [filters, setFilters] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+
   const makeApiRequest = async () => {
     setIsLoading(true);
     const response = await fetch("https://randomuser.me/api/?results=24");
@@ -27,21 +30,15 @@ function App() {
 
   return (
     <div className="App">
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(auto-fill,minmax(200px, 1fr))",
-          padding:'10px',
-          gap:"10px",
-          minHeight:"500px",
-        }}
+
+      <ProfileList
       >
         {isLoading && <p>Loading...</p> }
         {persons && 
           persons.map((person) => {
             return <ProfileCard key={person.login.uuid} person={person} onClick={handleClick} />;
           })}
-      </div>
+      </ProfileList>
       {person && <ProfileView person={person} closeProfile={closeProfile}/>}
     </div>
   );
